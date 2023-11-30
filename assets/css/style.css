@@ -101,7 +101,7 @@ body {
     &:nth-of-type(2) {
       background-position: left;
 
-      background-image: url("https://cdn.dribbble.com/users/729829/screenshots/6146136/galshir-tea-biscuit_2x.png");
+      background-image: url("../images/2.png");
     }
     &:nth-of-type(3) {
       background-position: left;
