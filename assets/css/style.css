@@ -1,3 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+
+@keyframes filterHue2 {
+  50% {
+    filter: hue-rotate(1000deg);
+  }
+  100% {
+    filter: hue-rotate(2000deg);
+  }
+}
+
+@keyframes filterHue {
+  50% {
+    filter: hue-rotate(1000deg);
+  }
+  100% {
+    filter: hue-rotate(2000deg) rotate(360deg);
+  }
+}
+
+@keyframes scaleUp {
+  50% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.25);
+  }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto Slab", serif;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  background: white;
+  height: 5%;
+  margin: 10px;
+  padding: 10px;
+  font-size: 43px;
+  font-family: cursive;
+  text-decoration: underline;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 90%;
+}
+.swiper-slide {
+  text-align: center;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-general {
+  padding: 75px 0;
+  margin: 0 auto;
+  min-width: 100%;
+
+  .gallery-wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70vh;
+
+    .item {
+      flex: 1;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: none;
+      transition: all 0.8s ease;
+      &:hover {
+        flex: 7;
+      }
+    }
+  }
+}
+
+.wrap-effect-1 {
+  .item {
+    &:first-of-type {
+      background-image: url("../images/1.png");
+      background-position: left;
+    }
+    &:nth-of-type(2) {
+      background-position: left;
+
+      background-image: url("https://cdn.dribbble.com/users/729829/screenshots/6146136/galshir-tea-biscuit_2x.png");
+    }
+    &:nth-of-type(3) {
+      background-position: left;
+
+      background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4473482/galshir-dog-walker.gif");
+    }
+    &:nth-of-type(4) {
+      background-position: left;
+
+      background-image: url("https://cdn.dribbble.com/users/729829/screenshots/5743606/gal-shir-scooter_2x.png");
+    }
+    &:last-of-type {
+      background-position: left;
+      background-image: url("https://cdn.dribbble.com/users/729829/screenshots/4738104/galshir-storytime.png");
+    }
+  }
+}
+
+.inspire {
+  border: 1px solid rgba(22, 76, 167, 0.6);
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
+  &:after {
+    /* background: #38ef7d; */
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 0.4;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+  &:hover {
+    &:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(10deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-10deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(5deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+p {
+  color: #fff;
+  background: #000;
+  mix-blend-mode: lighten;
+  font-size: 30px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 100px;
+  animation: filterHue2 2s linear infinite;
+}
+
+p::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #e23b4a; /* fallback */
+  background: linear-gradient(
+    to right,
+    #23966c,
+    #faaa54,
+    #e23b4a,
+    #db0768,
+    #360670
+  );
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.loader-container {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  animation: scaleUp 0.5s linear;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.loader {
+  background: #ff0c0c;
+  background: linear-gradient(50deg, #ff0c0c, #21d400);
+  border-radius: 10px;
+  filter: hue-rotate(0deg);
+  animation: filterHue 2.5s linear infinite;
+  height: 100%;
+  width: 100%;
+  transform: rotate(0deg);
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 10px;
+  top: 10px;
+  border-radius: 100%;
+}
+
+/* Add any other media queries or browser-specific styles as needed */
+
 /* -------------------------------- 
 
 Primary style
